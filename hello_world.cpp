@@ -16,6 +16,7 @@ int main(){
 
 // hello, useless function
 // another comment
+// git test
 
 inline void keep_window_open(){
     char ch;
