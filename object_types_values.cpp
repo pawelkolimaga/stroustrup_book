@@ -7,4 +7,8 @@ int main(){
     std::cin >> first_name;
     std::cout << "Hello, " << first_name << "!\n\n";
 
+    std::cout << "Provide your name and age and then press enter\n\n";
+    std::string first_name1 = "???";
+    int age = -1;
+
 }
