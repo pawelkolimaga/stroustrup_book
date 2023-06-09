@@ -17,6 +17,7 @@ int main(){
 // hello, useless function
 // another comment
 // another comment
+// comment from another PC, will see how git works :)
 
 inline void keep_window_open(){
     char ch;
