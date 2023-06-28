@@ -29,4 +29,22 @@ int main(){
     
     std::cout << sqrt(8) << "\n\n\n";
 
+    std::string current;
+    std::string previous = " ";
+    std::size_t number_of_words = 0;
+
+    while(current != ":q"){
+        std::cin >> current;
+        number_of_words++;
+        if(previous==current){
+            std::cout << "Repeatint words: " << current << "\n\n\n";
+            
+
+        previous = current;    
+        }
+        //if(first_name == "exit"){
+        //    break;
+        //}
+    }
+
 }
