@@ -45,7 +45,7 @@ private:
 class Ship{
     unsigned short id_;
     std::string name_;
-    unsigned speed_;
+    int speed_;
     const size_t maxCrew_;
     const unsigned capacity_;
 
@@ -54,7 +54,7 @@ class Ship{
 
     Ship (unsigned short id
     , const std::string& name
-    , unsigned speed
+    , int speed
     , const size_t maxCrew
     , const unsigned capacity) : 
     id_(id), name_(name), speed_(speed), maxCrew_(maxCrew), capacity_(capacity)
@@ -63,22 +63,22 @@ class Ship{
     // Gettery:
     unsigned short getId() const { return id_; }
     const std::string getName() const { return name_; }
-    unsigned getSpeed() const { return speed_; }
+    int getSpeed() const { return speed_; }
     const size_t getMaxCrew() const { return maxCrew_; }
     unsigned getCapacity() const { return capacity_; }
 
     //Settery:
     void setId(unsigned short id){ id_ = id; }
     void setName(std::string& name ) { name_ = name; }
-    void setSpeed( unsigned& speed ){ speed_ = speed; }
+    void setSpeed( int speed ){ speed_ = speed; }
 
     Ship& operator+= (int x){
         setId(id_ + x);
         return *this;
     }
 
-    Ship& operator++(){
-
+    Ship& operator++() {
+        setSpeed(speed_ + 1);
         return *this;
     }
 
