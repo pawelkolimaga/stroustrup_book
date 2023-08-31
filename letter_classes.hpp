@@ -48,6 +48,7 @@ class Ship{
     int speed_;
     const size_t maxCrew_;
     const unsigned capacity_;
+    size_t crew_;
 
     public:
     Ship() : Ship(1, "no_name", 0, 0, 0){}
@@ -71,13 +72,19 @@ class Ship{
     void setId(unsigned short id){ id_ = id; }
     void setName(std::string& name ) { name_ = name; }
     void setSpeed( int speed ){ speed_ = speed; }
+    void setCrew( int crew ){ crew_ = crew; }
 
-    Ship& operator+= (int x){
-        setId(id_ + x);
+    Ship& operator+= (const int x){
+        setCrew(crew_ = crew_+ x );
         return *this;
     }
 
-    Ship& operator++() {
+    Ship& operator-= (const int x){
+        setCrew(crew_ = crew_- x );
+        return *this;
+    }
+
+    Ship& operator++(int) {
         setSpeed(speed_ + 1);
         return *this;
     }
@@ -99,3 +106,37 @@ std::vector<int> concatenateVectors(std::vector<int>& vec1, std::vector<int>& ve
 
   return tempVec;
 }
+
+class Cargo{
+    public:
+    Cargo() : Cargo("Bananas", 1, 13) {}
+    Cargo(std::string name, int amount, const int basePrice) 
+    : name_(name)
+    , amount_(amount)
+    , basePrice_(basePrice)
+    {}
+
+    private:
+    std::string name_;
+    int amount_;
+    const int basePrice_;
+    
+    public:
+    int getBasePrice(){ return basePrice_; }
+    int getAmount(){ return amount_; }
+
+    void setAmount(size_t x){ amount_ += x; };
+
+    Cargo& operator+=(const size_t x){
+        //amount_ = amount_ + x;
+        setAmount(x);
+        return *this;
+    }
+
+    Cargo& operator-=(const size_t x){
+        amount_ = amount_ - x;
+        return *this;
+    }
+
+     
+};
